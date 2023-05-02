@@ -1,0 +1,66 @@
+//by taking dummy Nodes
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* head1, ListNode* head2) {
+        if(head1==NULL){
+            return head2;
+        }
+        if(head2==NULL){
+            return head1;
+        }
+        
+
+        ListNode * temp1=head1;
+      
+        ListNode* curr=temp1->next;
+        ListNode* temp2=head2;
+        ListNode* ans=new ListNode(-1) ;
+         ListNode* ansKaTail=ans ;
+        ListNode* help=NULL;
+        while(temp1!=NULL && temp2!=NULL){
+            
+            if(temp1->val<=temp2->val){
+                ListNode *a=new ListNode(temp1->val);
+                help=temp1;
+                temp1=temp1->next;
+                help->next=NULL;
+                ansKaTail->next=help;
+                ansKaTail=help;
+            }
+            else{
+                ListNode *a=new ListNode(temp2->val);
+                help=temp2;
+                temp2=temp2->next;
+                help->next=NULL;
+                ansKaTail->next=help;
+                ansKaTail=help;
+            }
+        }
+       if(temp1!=NULL){
+            ansKaTail->next=temp1;
+        }
+        // while(temp2!=NULL){
+        //     ListNode *a=new ListNode(temp2->val);
+        //         help=temp2;
+        //         temp2=temp2->next;
+        //         help->next=NULL;
+        //         ansKaTail->next=help;
+        //         ansKaTail=help;
+        // }
+        if(temp2!=NULL){
+            ansKaTail->next=temp2;
+        }
+        // while(temp1!=NULL){
+        //     ListNode *a=new ListNode(temp1->val);
+        //         help=temp1;
+        //         temp1=temp1->next;
+        //         help->next=NULL;
+        //         ansKaTail->next=help;
+        //         ansKaTail=help;
+        // }
+
+        return ans->next;
+
+        return ans->next;
+    }
+};
