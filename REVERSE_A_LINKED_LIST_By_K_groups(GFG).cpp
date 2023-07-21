@@ -50,7 +50,7 @@ class Solution
         }
         if(forward!=NULL){
         //still some nodes is left for reverse
-            head->next=solve(forward,k);
+            head->next=solve(forward,k);//YE LINE MAI BHULUNGA
         }
         return prev;
 
